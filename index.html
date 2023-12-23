@@ -2,6 +2,9 @@
   <head>
     <title>Susie & Eric - Friday, 9/13/24 - Sonoma, California</title>
     <style>
+      #rotatingImage {
+        transition: transform 0.5s ease; /* Adding smooth transition effect */
+      }
       img {
          max-height:50vh;
          max-width:100%;
@@ -9,10 +12,24 @@
          height:auto;
       }
     </style>
+    <script>
+      var rotated = false;
+
+      function rotateImage() {
+        var image = document.getElementById('rotatingImage');
+        rotated = !rotated;
+
+        if (rotated) {
+          image.style.transform = 'rotate(180deg)';
+        } else {
+          image.style.transform = 'rotate(0deg)';
+        }
+      }
+    </script>
   </head>
 <body>
   <center>
-    <img src="front.png">
+    <img id="rotatingImage" src="front.png" onclick="rotateImage()">
     <br>
     <img src="back.png">
   </center>
